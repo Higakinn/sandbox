@@ -1,0 +1,17 @@
+name: hello-world
+image: okteto/golang:1.16
+autocreate: true
+workdir: /okteto
+command: ["bash"]
+volumes:
+  - /go/pkg/                # persist go dependencies
+  - /root/.cache/go-build/  # persist go build cache
+  - /root/.vscode-server    # persist vscode extensions
+securityContext:
+  capabilities:
+    add:
+    - SYS_PTRACE            # required by the go debugger
+forward:
+  - 8080:8080
+persistentVolume:
+  enabled: true
