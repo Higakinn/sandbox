@@ -1,0 +1,8 @@
+version: "3"
+services:
+  centos:
+    image: centos
+    tty: true
+    working_dir: /mnt
+    volumes:
+      - ./:/mnt
