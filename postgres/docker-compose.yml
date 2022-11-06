@@ -1,0 +1,9 @@
+version: "3"
+services:
+  postgres:
+    image: postgres:alpine
+    tty: true
+    environment:
+      POSTGRES_PASSWORD: example
+    volumes:
+      - ./sql/:/sql/
