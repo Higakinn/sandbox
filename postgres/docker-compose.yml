@@ -1,7 +1,7 @@
 version: "3"
 services:
   postgres:
-    image: postgres:alpine
+    build: .
     tty: true
     environment:
       POSTGRES_PASSWORD: example

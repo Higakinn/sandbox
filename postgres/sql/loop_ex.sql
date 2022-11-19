@@ -11,11 +11,10 @@ for i in range(3):
 2 0
 2 1
 2 2
-*/
-
-with series as (
-  select generate_series v from generate_series(0,10)
-)
-select s1.v as i, s2.v as j 
-from series s1
-inner join series s2 on 1 = 1
+*/ WITH series AS
+  (SELECT generate_series v
+   FROM generate_series(0, 10))
+SELECT s1.v AS i
+     , s2.v AS j
+FROM series s1
+INNER JOIN series s2 ON 1 = 1

@@ -7,23 +7,24 @@
   2: recovering
   3: dying
   4: dead
-*/
-with player_data as (
-  select 1 as player_id, 'player1' as player_name, 1 as status_id
-  union
-  select 2 as player_id, 'player2' as player_name, 2 as status_id
-  union
-  select 3 as player_id, 'player3' as player_name, 3 as status_id
-  union
-  select 4 as player_id, 'player4' as player_name, 4 as status_id
-
-)
-select 
-  *,
-  case
-    when status_id=1 then 'alive'
-    when status_id=2 then 'recovering'
-    when status_id=3 then 'dying'
-    else 'dead'
-  end status_mame
-from player_data;
+*/ WITH player_data AS
+  (SELECT 1 AS player_id
+        , 'player1' AS player_name
+        , 1 AS status_id
+   UNION SELECT 2 AS player_id
+              , 'player2' AS player_name
+              , 2 AS status_id
+   UNION SELECT 3 AS player_id
+              , 'player3' AS player_name
+              , 3 AS status_id
+   UNION SELECT 4 AS player_id
+              , 'player4' AS player_name
+              , 4 AS status_id)
+SELECT *
+     ,  CASE
+            WHEN status_id=1 THEN 'alive'
+            WHEN status_id=2 THEN 'recovering'
+            WHEN status_id=3 THEN 'dying'
+            ELSE 'dead'
+        END status_mame
+FROM player_data;
