@@ -29,7 +29,7 @@ func readChunks(file *os.File) []io.Reader {
 		if err == io.EOF {
 			break
 		}
-		// 長さ: 4バイト, 種類: ４バイト, データ: 4バイト, CRC: 4バイト
+		// 長さ: 4バイト + 種類: ４バイト + データ  + CRC: 4バイト
 		chunk := io.NewSectionReader(file, offset, int64(length) + 4 + 4 + 4)
 		chunks = append(chunks, chunk)
 

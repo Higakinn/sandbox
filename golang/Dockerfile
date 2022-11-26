@@ -5,6 +5,13 @@ COPY . .
 
 RUN go build main.go
 
-FROM alpine:3.13
+FROM alpine:3.13 as prd
 COPY --from=builder /go/src/main /main
 ENTRYPOINT [ "/main" ]
+
+FROM golang:1.17.1-alpine3.13 as dev
+
+WORKDIR /go/src
+COPY . .
+
+ENTRYPOINT ["go", "run", "main.go"]
