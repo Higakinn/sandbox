@@ -1,0 +1,6 @@
+services:
+  alpine:
+    build: .
+    tty: true
+    volumes:
+      - ./files/:/mnt/
