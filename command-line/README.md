@@ -1,4 +1,9 @@
 # command-line tips
+## csvファイルのカラムを表示
+
+```shell
+csvcut -n csvkit_tutorial/data.csv
+```
 
 
 # おすすめサイト
