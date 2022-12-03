@@ -12,4 +12,5 @@ jobs:
           ref: ${{ github.ref }}
       - name: lint Dockerfile
         run: | 
+          ls -al 
           docker run --rm -i ghcr.io/hadolint/hadolint < .command-line/Dockerfile
