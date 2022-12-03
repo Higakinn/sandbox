@@ -1,3 +1,4 @@
+source /usr/share/bash-completion/bash_completion
 # json 同士の差分を表示するコマンド
 function jsondiff() {
 	local file1="${1}"
