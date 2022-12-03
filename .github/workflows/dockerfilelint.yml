@@ -13,4 +13,4 @@ jobs:
       - name: lint Dockerfile
         run: | 
           ls -al 
-          docker run --rm -i ghcr.io/hadolint/hadolint < .command-line/Dockerfile
+          docker run --rm -i ghcr.io/hadolint/hadolint < ./command-line/Dockerfile
