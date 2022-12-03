@@ -6,7 +6,7 @@ RUN apk add apg bash bash-completion \
             coreutils \
             findutils \
             git \
-            jq npm make vim py3-pip
+            jq npm make tmux vim py3-pip
 
 # install csvkit
 # https://csvkit.readthedocs.io/en/latest/
@@ -21,6 +21,12 @@ RUN cd /usr/local/ && \
     git clone https://github.com/facebook/PathPicker.git && \
     cd PathPicker/ && \
     ln -s "$(pwd)/fpp" /usr/local/bin/fpp
+
+# install kubectl
+ARG KUBECTL_VERSION=1.17.5
+RUN curl -sLO https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl && \
+    mv kubectl /usr/bin/kubectl && \
+    chmod +x /usr/bin/kubectl
 
 COPY .vimrc /root/.vimrc 
 RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

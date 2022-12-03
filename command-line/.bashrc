@@ -1,3 +1,4 @@
+alias ll='ls -al'
 alias m='make'
 source /usr/share/bash-completion/bash_completion
 # json 同士の差分を表示するコマンド
@@ -32,3 +33,4 @@ function set_diff() {
 
 }
 
+source <(kubectl completion bash)
