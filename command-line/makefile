@@ -9,8 +9,11 @@ list:
 
 up:
 	docker compose up -d
+build:
+	docker compose up -d --build
 bash:
 	docker compose exec alpine bash
+# ---------------------------------------------------------------------------
 csv_col:	# csvファイルのカラム名を取得
 	csvcut -n ${CSV}
 csv_sql:	# csvファイルの中身をSQLで取得

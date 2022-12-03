@@ -1,10 +1,11 @@
+alias m='make'
 source /usr/share/bash-completion/bash_completion
 # json 同士の差分を表示するコマンド
 function jsondiff() {
 	local file1="${1}"
 	local file2="${2}"
 
-	diff <(jq --sort-keys . < file1.json) <(jq --sort-keys . < file2.json) | colordiff
+	diff <(jq --sort-keys . < "${file1}") <(jq --sort-keys . < "${file2}") | colordiff
 }
 
 # file同士の和集合を表示する関数

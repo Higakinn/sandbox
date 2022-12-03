@@ -1,6 +1,12 @@
 FROM alpine
 
-RUN apk add bash bash-completion colordiff jq curl py3-pip npm coreutils git make
+RUN apk add apg bash bash-completion \
+            colordiff \
+	    curl \ 
+            coreutils \
+            findutils \
+            git \
+            jq npm make vim py3-pip
 
 # install csvkit
 # https://csvkit.readthedocs.io/en/latest/
@@ -16,9 +22,12 @@ RUN cd /usr/local/ && \
     cd PathPicker/ && \
     ln -s "$(pwd)/fpp" /usr/local/bin/fpp
 
+COPY .vimrc /root/.vimrc 
+RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+RUN vim -c PlugInstall -c q -c q
+
 # install carbon-now-cli
 #RUN npm i -g carbon-now-cli
 
 WORKDIR /mnt
-
 COPY .bashrc /root/.bashrc
