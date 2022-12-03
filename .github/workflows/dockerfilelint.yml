@@ -1,0 +1,15 @@
+name: Lint Dockerfile
+
+on: push
+
+jobs:
+  dockerfile_linter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout current branch
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+      - name: lint Dockerfile
+        run: | 
+          docker run --rm -i ghcr.io/hadolint/hadolint < .command-line/Dockerfile

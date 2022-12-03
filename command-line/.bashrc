@@ -1,6 +1,11 @@
+# エイリアス
+alias k9s='k9s --readonly'
 alias ll='ls -al'
 alias m='make'
+
 source /usr/share/bash-completion/bash_completion
+source <(kubectl completion bash)
+
 # json 同士の差分を表示するコマンド
 function jsondiff() {
 	local file1="${1}"
@@ -33,4 +38,3 @@ function set_diff() {
 
 }
 
-source <(kubectl completion bash)

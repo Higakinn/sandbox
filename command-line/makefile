@@ -13,6 +13,12 @@ build:
 	docker compose up -d --build
 bash:
 	docker compose exec alpine bash
+setup_k8s:
+	mkdir -p ~/.kube/
+	cat ./okteto-kube.config > ~/.kube/config
+	kubectl config get-contexts
+create_dummy_k8s_pod:
+	kubectl run busybox --image=busybox --command --restart=Never -- tail -f /dev/null
 # ---------------------------------------------------------------------------
 csv_col:	# csvファイルのカラム名を取得
 	csvcut -n ${CSV}

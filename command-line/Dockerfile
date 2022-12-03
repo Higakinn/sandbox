@@ -6,7 +6,7 @@ RUN apk add apg bash bash-completion \
             coreutils \
             findutils \
             git \
-            jq npm make tmux vim py3-pip
+            jq k9s npm make tmux vim py3-pip
 
 # install csvkit
 # https://csvkit.readthedocs.io/en/latest/
