@@ -14,8 +14,8 @@ jobs:
         run: | 
           ls -al 
           for file in `find . -name 'Dockerfile'`; do
-            echo -n "==========================================";
-            echo -n "${file}のlinterを実行中....";
-            echo -n "==========================================";
+            echo "==========================================";
+            echo "${file}のlinterを実行中....";
+            echo "==========================================";
             docker run --rm -i ghcr.io/hadolint/hadolint /bin/hadolint --no-fail - < "${file}"
           done
