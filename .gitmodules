@@ -1,0 +1,3 @@
+[submodule "mikoshis"]
+	path = python/mikoshis
+	url = https://github.com/Higakinn/mikoshis.git
