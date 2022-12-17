@@ -1,0 +1,12 @@
+# docker run --rm -it -v ${PWD}:/build --workdir /build cirrusci/flutter:stable ls
+
+version: "3"
+services: 
+  flutter:
+    build: .
+    volumes: 
+      - "./:/app"
+    ports: 
+      - "8090:8090"
+    entrypoint: >
+      /bin/bash -c "flutter run -d web-server --web-hostname=0.0.0.0 --web-port 8090"
