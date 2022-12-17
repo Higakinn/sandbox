@@ -1,0 +1,9 @@
+version: '3'
+services:
+  graphiql:
+    build: .
+    tty: true
+    ports:
+      - 8020:80
+    volumes:
+      - ./src/:/app

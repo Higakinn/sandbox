@@ -1,0 +1,13 @@
+{
+  "name": "my-electron-app",
+  "version": "1.0.0",
+  "description": "electron-app-sample",
+  "main": "main.js",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^16.0.0"
+  },
+  "scripts": {
+    "start": "electron ."
+  }
+}
