@@ -25,3 +25,6 @@
 [submodule "python/python-project-template"]
 	path = python/python-project-template
 	url = https://github.com/Higakinn/python-project-template.git
+[submodule "python/gql-ariadne"]
+	path = python/gql-ariadne
+	url = https://github.com/Higakinn/gql-ariadne.git
