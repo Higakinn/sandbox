@@ -1,0 +1,15 @@
+{
+    // コンテナをVS Codeで起動するための設定を記述するためのファイル
+    "name": "ubuntu-texlive-ja",
+    "dockerComposeFile": "docker-compose.yml",
+    "extensions": [
+        "formulahendry.terminal",
+        "james-yu.latex-workshop"
+    ],
+    // VS Codeで開くコンテナを指定。今回は ubuntu-texlive-jaを開く
+    "service": "ubuntu-texlive-ja",
+    // VS Codeのリモートワークスペース。コンテナ内のディレクトリを指定できる
+    "workspaceFolder": "/workdir",
+    // VS Codeを閉じるとコンテナも停止する設定。
+    "shutdownAction": "stopCompose"
+}
