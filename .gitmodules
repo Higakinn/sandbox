@@ -7,3 +7,9 @@
 [submodule "golang/gc2_streaming_bot"]
 	path = golang/gc2_streaming_bot
 	url = https://github.com/Higakinn/gc2-streaming-bot.git
+[submodule "memo"]
+	path = memo
+	url = https://github.com/Higakinn/daily-memo.git
+[submodule "python/mongo-oplog"]
+	path = python/mongo-oplog
+	url = https://github.com/hgaiji/mongo-oplog.git
