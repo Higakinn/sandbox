@@ -1,3 +1,6 @@
 [submodule "mikoshis"]
 	path = python/mikoshis
 	url = https://github.com/Higakinn/mikoshis.git
+[submodule "golang/chat"]
+	path = golang/chat
+	url = https://github.com/hgaiji/golang-chat.git
