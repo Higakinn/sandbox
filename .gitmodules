@@ -13,3 +13,6 @@
 [submodule "python/mongo-oplog"]
 	path = python/mongo-oplog
 	url = https://github.com/hgaiji/mongo-oplog.git
+[submodule "mongo/mongo-shard"]
+	path = mongo/mongo-shard
+	url = https://github.com/Higakinn/mongo-shard.git
