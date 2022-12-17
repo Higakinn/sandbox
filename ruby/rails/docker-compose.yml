@@ -1,0 +1,21 @@
+version: '3'
+services:
+  rails:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    tty: true
+    volumes:
+      - ./:/app
+    entrypoint: >
+      sleep 86400
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
