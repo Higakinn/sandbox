@@ -16,3 +16,12 @@
 [submodule "mongo/mongo-shard"]
 	path = mongo/mongo-shard
 	url = https://github.com/Higakinn/mongo-shard.git
+[submodule "python/py-selenium"]
+	path = python/py-selenium
+	url = https://github.com/Higakinn/selenium.git
+[submodule "golang/golang-project-template"]
+	path = golang/golang-project-template
+	url = https://github.com/Higakinn/golang-project-template.git
+[submodule "python/python-project-template"]
+	path = python/python-project-template
+	url = https://github.com/Higakinn/python-project-template.git
