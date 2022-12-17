@@ -4,3 +4,6 @@
 [submodule "golang/chat"]
 	path = golang/chat
 	url = https://github.com/hgaiji/golang-chat.git
+[submodule "golang/gc2_streaming_bot"]
+	path = golang/gc2_streaming_bot
+	url = https://github.com/Higakinn/gc2-streaming-bot.git
