@@ -20,9 +20,13 @@ Vagrant.configure("2") do |config|
 
 	# install packages
 	yum -y install epel-release.noarch vim tmux tig
+
+        # tmux setting
         cp /home/vagrant/shared/command-line/.tmux.conf ~/.tmux.conf
-        #cp /home/vagrant/shared/command-line/.vimrc ~/.vimrc
-	#curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	#vim -c PlugInstall -c q -c q
+
+        # vim setting 
+        cp /home/vagrant/shared/command-line/.vimrc ~/.vimrc
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	vim -c PlugInstall -c q -c q
   SHELL
 end

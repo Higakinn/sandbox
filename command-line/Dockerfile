@@ -1,7 +1,7 @@
 FROM alpine
 
 RUN apk add apg bash bash-completion \
-            colordiff \
+	    colordiff \
 	    curl \ 
             coreutils \
             findutils \

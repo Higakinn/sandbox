@@ -7,6 +7,7 @@ FILE=hoge.txt
 list:
 	@LC_ALL=C $(MAKE) -pRrq -f $(lastword $(MAKEFILE_LIST)) : 2>/dev/null | awk -v RS= -F: '/(^|\n)# Files(\n|$$)/,/(^|\n)# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}' | sort | egrep -v -e '^[^[:alnum:]]' -e '^$@$$'
 
+# docker ============================================================
 up:
 	docker compose up -d
 build:
@@ -20,6 +21,8 @@ setup_k8s:
 create_dummy_k8s_pod:
 	kubectl run busybox --image=busybox --command --restart=Never -- tail -f /dev/null
 # ---------------------------------------------------------------------------
+cheat_sheet:
+	curl cheat.sh/
 csv_col:	# csvファイルのカラム名を取得
 	csvcut -n ${CSV}
 csv_sql:	# csvファイルの中身をSQLで取得

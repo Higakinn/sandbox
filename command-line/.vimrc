@@ -1,5 +1,5 @@
 "colorscheme codedark
-set completeopt=menuone,noinsert
+"set completeopt=menuone,noinsert
 "set tabstop=2
 "set shiftwidth=2
 set number
@@ -28,11 +28,11 @@ Plug 'Shougo/neomru.vim'
 Plug 'Shougo/unite.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'lambdalisue/fern.vim'
-Plug 'lambdalisue/fern-git-status.vim'
+"Plug 'lambdalisue/fern.vim'
+"Plug 'lambdalisue/fern-git-status.vim'
 Plug 'lambdalisue/nerdfont.vim'
-Plug 'lambdalisue/fern-renderer-nerdfont.vim'
-let g:fern#renderer = 'nerdfont'
+"Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+"let g:fern#renderer = 'nerdfont'
 let g:airline#extensions#tabline#enabled = 1
 "" vim-airline
 " ステータスラインに表示する項目を変更する
