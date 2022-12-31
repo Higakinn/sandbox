@@ -28,3 +28,6 @@
 [submodule "python/gql-ariadne"]
 	path = python/gql-ariadne
 	url = https://github.com/Higakinn/gql-ariadne.git
+[submodule "myscripts/gc2bot"]
+	path = myscripts/gc2bot
+	url = https://github.com/Higakinn/gc2bot.git
