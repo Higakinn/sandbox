@@ -1,7 +1,7 @@
 version: '2'
 services:
-        selenium:
-                build: .
-                tty: true
-                volumes:
-                - ./src/:/mnt/
+    selenium:
+        build: .
+      tty: true
+      volumes:
+        - ./src/:/mnt/
