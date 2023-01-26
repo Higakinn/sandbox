@@ -9,6 +9,7 @@ jobs:
       with:
         version: 'v1.21.2-k3s1'
     - run: |
+        kubectl kustomize --help
         kubectl get nodes
         kubectl create deployment my-dep --image=busybox
         sleep 10
