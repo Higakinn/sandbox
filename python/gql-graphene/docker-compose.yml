@@ -7,3 +7,12 @@ services:
       - ./src:/mnt
     ports:
       - 8000:8000
+  db:
+    image: mysql:8-debian
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: user
+    volumes:
+      - ./sql/:/docker-entrypoint-initdb.d/
