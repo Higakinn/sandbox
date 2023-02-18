@@ -1,0 +1,12 @@
+terraform apply \
+            -auto-approve \
+            -var="cluster_name=${COCKROACHDB_CLUSTER_NAME}" \
+            -var="sql_user_name=a-b-c-d-e-f-g-h-i-j" \
+            -var="sql_user_password=hogei"
+
+terraform apply \
+            -auto-approve \
+            -var='cluster_name=a-b-c-d-e-f-g-h-i-j' \
+            -var='sql_user_name=a-b-c-d-e-f-g-h-i-j' \
+            -var='sql_user_password=${COCKROACHDB_PASS}'
+            

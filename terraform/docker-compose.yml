@@ -1,0 +1,11 @@
+version: '3'
+services:
+  tf:
+    image: hashicorp/terraform:latest
+    working_dir: /mnt
+    volumes:
+      - ./src:/mnt
+    env_file:
+      - .env
+    entrypoint: >
+      tail -f /dev/null

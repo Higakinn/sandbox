@@ -1,0 +1,12 @@
+# Get Started
+
+```dotnetcli
+docker compose up -d
+docker compose exec tf sh
+terraform init
+terraform apply \
+            -auto-approve \
+            -var="cluster_name=${COCKROACHDB_CLUSTER_NAME}" \
+            -var="sql_user_name=${COCKROACHDB_USER}" \
+            -var="sql_user_password=${COCKROACHDB_PASS}"
+```
