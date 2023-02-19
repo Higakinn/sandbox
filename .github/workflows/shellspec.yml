@@ -1,0 +1,19 @@
+name: shellspec
+# 参考: https://zenn.dev/ryo_kawamata/articles/introduce-shellspec
+
+on: [ workflow_dispatch ]
+
+jobs:
+  shellspec:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout current branch
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+      - name: test
+        run: | 
+          echo "shellspec start!"
+          echo "...."
+          echo "shellspec end!"
+          
