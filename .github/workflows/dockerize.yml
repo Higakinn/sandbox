@@ -22,5 +22,5 @@ jobs:
           docker network create dockerize-test
           docker run --network=dockerize-test --name mysql -e MYSQL_ROOT_PASSWORD=psss -d mysql:latest
           echo "wait starting mysql ...."
-          dockerize --timeout 20s --wait, tcp://mysql:3306
+          dockerize --timeout 20s --wait tcp://mysql:3306
           docker exec -it mysql mysql 
