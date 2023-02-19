@@ -10,17 +10,10 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: ${{ github.ref }}
-      - name: Install dockerize
-        env:
-          DOCKERIZE_VERSION: v0.6.1
-        run: |
-          wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
-            && tar -C /usr/local/bin -xzvf dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
-            && rm dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz
       - name: test
         run: | 
           docker network create dockerize-test
           docker run --network=dockerize-test --name mysql -e MYSQL_ROOT_PASSWORD=psss -d mysql:latest
           echo "wait starting mysql ...."
-          dockerize --timeout 20s --wait tcp://mysql:3306
+          docker run --network=dockerize-test -it --entrypoint dockerize jwilder/dockerize --timeout 20s --wait tcp://mysql:3306
           docker exec -it mysql mysql 
