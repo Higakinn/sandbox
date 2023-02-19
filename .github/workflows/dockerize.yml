@@ -19,4 +19,8 @@ jobs:
             && rm dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz
       - name: test
         run: | 
-          dockerize --help
+          docker network create dockerize-test
+          docker run --network=dockerize-test --name mysql -e MYSQL_ROOT_PASSWORD=psss -d mysql:latest
+          echo "wait starting mysql ...."
+          dockerize --timeout 20s --wait, tcp://mysql:3306
+          docker exec -it mysql mysql 
