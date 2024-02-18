@@ -6,7 +6,7 @@ RUN apk add apg bash bash-completion \
             coreutils \
             findutils \
             git \
-            jq k9s npm make tmux vim py3-pip aws-cli
+            jq k9s npm make tmux vim py3-pip aws-cli screen
 
 # install csvkit
 # https://csvkit.readthedocs.io/en/latest/
