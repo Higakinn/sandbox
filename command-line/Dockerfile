@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:3.18.2
 
 RUN apk add apg bash bash-completion \
 	    colordiff \
@@ -6,7 +6,7 @@ RUN apk add apg bash bash-completion \
             coreutils \
             findutils \
             git \
-            jq k9s npm make tmux vim py3-pip
+            jq k9s npm make tmux vim py3-pip aws-cli
 
 # install csvkit
 # https://csvkit.readthedocs.io/en/latest/
@@ -31,6 +31,10 @@ RUN curl -sLO https://storage.googleapis.com/kubernetes-release/release/v${KUBEC
 COPY .vimrc /root/.vimrc 
 RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 RUN vim -c PlugInstall -c q -c q
+
+# install gcloud
+RUN curl -sSL https://sdk.cloud.google.com | bash
+ENV PATH $PATH:/root/google-cloud-sdk/bin
 
 # install carbon-now-cli
 #RUN npm i -g carbon-now-cli
