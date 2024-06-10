@@ -14,5 +14,5 @@ jobs:
         run: |
           cd terraform
           docker compose up -d 
-          docker compose exec tf sh -c 'cd localstack && terraform plan'
+          docker compose exec tf sh -c 'cd localstack && && terraform init && terraform plan'
           docker compose exec tf sh -c 'cd localstack && terraform apply --auto-approve'
