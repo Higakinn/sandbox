@@ -1,11 +1,18 @@
 version: '3'
 services:
+  localstack:
+    platform: linux/amd64
+    image: localstack/localstack:0.12.1
+    environment:
+      - DEBUG=0
+    volumes:
+      - "./src/localstack/tmp:/tmp/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
   tf:
+    platform: linux/amd64
     image: hashicorp/terraform:latest
     working_dir: /mnt
     volumes:
       - ./src:/mnt
-    env_file:
-      - .env
     entrypoint: >
       tail -f /dev/null
