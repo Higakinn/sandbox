@@ -1,11 +1,11 @@
 ## これは何？
-
-db-migrationsとdb定義書を
+mysqlに対して
+db-migrationsでdbスキーマを構築し、構築されたdbスキーマを下にdb定義書を自動生成します。
 
 
 ## 環境構築手順
 
 ```dotnetcli
-cp .env.example .env
 docker compose up -d
 ```
+
