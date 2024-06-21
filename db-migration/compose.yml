@@ -1,0 +1,41 @@
+services:
+  migration:
+    build:
+      context: migrations
+      dockerfile: Dockerfile
+    volumes:
+      - ./migrations/sqls/:/mnt
+    env_file:
+      - .env.local
+    tty: true
+    entrypoint: goose up
+    depends_on:
+      mysql:
+        condition: service_healthy
+  tbls:
+    image: ghcr.io/k1low/tbls
+    platform: linux/amd64
+    working_dir: /mnt
+    tty: true
+    depends_on:
+      migration:
+        condition: service_completed_successfully
+    volumes:
+      - ./docs:/mnt
+    env_file:
+      - .env.local
+    entrypoint: tbls doc --rm-dist ${GOOSE_DRIVER}://${MYSQL_USER}:${MYSQL_ROOT_PASSWORD}@${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DATABASE}
+  mysql:
+    image: mysql:8.0.27
+    platform: linux/amd64
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    restart: always
+    volumes:
+    - ./initdb.d:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: "mysqladmin ping -h 127.0.0.1 -u root -p$$MYSQL_ROOT_PASSWORD"
+      timeout: 5s
+      interval: 5s
+      retries: 10
